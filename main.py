@@ -51,6 +51,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await update.message.reply_text("❌ You're not in a chat. Use /start to find a partner.")
 
+async def block_non_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("❌ Only text messages are allowed in anonymous chat.")
+
 def main():
     import os
     TOKEN = os.environ.get("BOT_TOKEN")  # Set this in Railway or .env
