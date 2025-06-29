@@ -60,6 +60,7 @@ def main():
     app.add_handler(CommandHandler("stop", stop))
     app.add_handler(CommandHandler("next", next_cmd))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    app.add_handler(MessageHandler(~filters.TEXT & ~filters.COMMAND, block_non_text))
 
     print("Bot running...")
     app.run_polling()
